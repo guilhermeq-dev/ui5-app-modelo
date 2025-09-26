@@ -1,0 +1,24 @@
+{
+  "generationParameters": {
+    "generationDate": "Fri Sep 26 2025 19:13:13 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://services.odata.org/V2/(S(u4zosymoonebphg43nohhgvg))/OData/OData.svc/",
+    "appName": "ui5-app-modelo",
+    "appTitle": "Meus Produtos",
+    "appDescription": "An SAP Fiori application.",
+    "appNamespace": "com.alfa",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.140.0",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.18.7",
+    "template": "Basic V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

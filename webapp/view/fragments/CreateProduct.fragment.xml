@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog title="Novo Produto">
+        <content>
+            <VBox>
+                <f:SimpleForm>
+                    <f:content>
+                        <Label text="ID" />
+                        <Input
+                            value="{createProduct>/ID}" placeholder="Digite um valor"
+                        />
+                        <Label text="Produto" />
+                        <Input
+                            value="{createProduct>/Name}" placeholder="Digite um valor"
+                        />
+                        <Label text="Descrição" />
+                        <Input
+                            value="{createProduct>/Description}" placeholder="Digite um valor"
+                        />
+                        <Label text="Avalição" />
+                        <RatingIndicator
+                            value="{createProduct>/Rating}" maxValue="5"
+                        />
+                        <Label text="Preço" />
+                        <Input
+                            value="{createProduct>/Price}" placeholder="Digite um valor"
+                        />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+        <buttons>
+            <Button text="Fechar" type="Transparent" press="onCloseDialog"></Button>
+            <Button text="Criar" type="Emphasized" press="onCreateProduct"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
