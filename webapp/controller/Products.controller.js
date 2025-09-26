@@ -9,6 +9,7 @@ sap.ui.define([
 
     return BaseController.extend("com.alfa.ui5appmodelo.controller.Products", {
         onInit() {
+            this.getUser();
         },
         handleCreateProduct() {
             const viewId = this.getView().getId();
@@ -20,10 +21,10 @@ sap.ui.define([
                 Rating: "",
                 Price: ""
             }
-        
+
             this.setModel(oData, "createProduct")
 
-            if(!this._createDialog) {
+            if (!this._createDialog) {
                 this._createDialog = sap.ui.xmlfragment(viewId, "com.alfa.ui5appmodelo.view.fragments.CreateProduct", this);
                 this.getView().addDependent(this._createDialog)
             };
@@ -49,10 +50,10 @@ sap.ui.define([
             const sProduct = oSelectedItem.getBindingContext().getProperty('ID');
             const oModel = this.getModel();
             MessageBox.confirm("Tem certeza que deseja excluir este produto?", {
-                title: "Alerta", 
+                title: "Alerta",
                 icon: MessageBox.Icon.WARNING,
                 onClose: (oAction) => {
-                    if(oAction === MessageBox.Action.OK) {
+                    if (oAction === MessageBox.Action.OK) {
                         models.deleteProduct(sProduct)
                             .then(() => {
                                 oModel.refresh();
@@ -68,6 +69,23 @@ sap.ui.define([
         onCloseDialog(oEvent) {
             const dialog = oEvent.getSource().getParent();
             dialog.close();
+        },
+        getUser() {
+            const oComponent = this.getOwnerComponent();
+            const baseUrl = oComponent.getManifestObject().resolveUri('user-api/currentUser');
+            fetch(baseUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(String(response.status))
+                    }
+                    return response.json()
+                }).then((data) => {
+                    this.setModel(data, 'user')
+                })
+                .catch((error) => {
+                    this.setModel(new JSONModel({}), 'user')
+                    MessageBox.error("Erro ao buscar informações do usuario", { details: error.message })
+                })
         }
     });
 });
