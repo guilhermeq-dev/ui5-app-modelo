@@ -21,6 +21,9 @@ function (JSONModel, Device, connector) {
         },
         deleteProduct: function (sProductId) {
             return connector.delete(`/Products(${sProductId})`);
+        },
+        updateProduct: function (sProductId, data) {
+            return connector.update(`/Products(${sProductId})`, data);
         }
     };
 

@@ -4,16 +4,8 @@
   "description": "Security profile of called application",
   "scopes": [
     {
-      "name": "uaa.user",
-      "description": "UAA"
-    },
-    {
       "name": "$XSAPPNAME.FIORI_APP_MODELO_ADMIN",
       "description": "Admin access"
-    },
-    {
-      "name": "$XSAPPNAME.FIORI_APP_MODELO_READ",
-      "description": "Read only access"
     }
   ],
   "role-templates": [
@@ -29,14 +21,6 @@
       "description": "Admin access",
       "scope-references": [
         "$XSAPPNAME.FIORI_APP_MODELO_ADMIN"
-      ],
-      "attribute-references": []
-    },
-    {
-      "name": "FIORI_APP_MODELO_READ",
-      "description": "Read only access",
-      "scope-references": [
-        "$XSAPPNAME.FIORI_APP_MODELO_READ"
       ],
       "attribute-references": []
     }

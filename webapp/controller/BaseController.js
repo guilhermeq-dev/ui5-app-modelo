@@ -15,9 +15,9 @@ sap.ui.define(
       setModel: function (oModel, sModelName) {
         return this.getView().setModel(new JSONModel(oModel), sModelName);
       },
-
-      
-    
+      setBusy: function (boolean) {
+        return this.getView().setBusy(boolean);
+      }
     });
   }
 );

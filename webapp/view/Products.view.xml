@@ -1,4 +1,5 @@
-<mvc:View controllerName="com.alfa.ui5appmodelo.controller.Products"
+<mvc:View
+    controllerName="com.alfa.ui5appmodelo.controller.Products"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:m="sap.m"
     xmlns="sap.ui.table"
@@ -55,15 +56,44 @@
                     </template>
                 </Column>
                 <Column
+                    width="50px"
+                    resizable="false"
+                    visible="{
+                                path:'user>/scopes',
+                                formatter:'.formatter.isUserAllowedToEdit'
+                            }"
+                >
+                    <template>
+                        <m:HBox
+                            alignItems="Center"
+                            justifyContent="Center"
+                        >
+                            <c:Icon
+                                size="1rem"
+                                color="#5A7DA0"
+                                src="sap-icon://edit"
+                                press="handleEditProduct"
+                            />
+                        </m:HBox>
+                    </template>
+                </Column>
+                <Column
                     resizable="false"
                     width="50px"
+                    visible="{
+                                path:'user>/scopes',
+                                formatter:'.formatter.isUserAllowedToEdit'
+                            }"
                 >
                     <m:Label text="" />
                     <template>
-                        <m:HBox alignItems="Center" justifyContent="Center">
+                        <m:HBox
+                            alignItems="Center"
+                            justifyContent="Center"
+                        >
                             <c:Icon
-								size="1rem"
-								color="#5A7DA0"
+                                size="1rem"
+                                color="#5A7DA0"
                                 press="handleDeleteProduct"
                                 src="sap-icon://delete"
                             />
@@ -76,6 +106,10 @@
             <m:OverflowToolbar style="Clear">
                 <m:ToolbarSpacer />
                 <m:Button
+                    visible="{
+                                path:'user>/scopes',
+                                formatter:'.formatter.isUserAllowedToEdit'
+                            }"
                     text="Adicionar produto"
                     type="Emphasized"
                     icon="sap-icon://add"
